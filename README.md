@@ -8,7 +8,7 @@ Tianlong Chen\*, Yongduo Sui\*, Xuxi Chen, Aston Zhang, Zhangyang Wang
 
 ## Overview
 
-<img src = "./Figs/Teaser.png" align = "left" width="50%" hight="50%"> Summary of our achieved performance (y-axis) at different graph and GNN sparsity levels (x-axis) on Cora and Citeceer node classification. The size of markers represent the inference MACs ($=\frac{1}{2}$ FLOPs) of each sparse GCN on the corresponding sparsified graphs. Black circles ($\bullet$) indicate the baseline, i.e., unpruned dense GNNs on the full graph. Blue circles ($\textcolor{blue}{\bullet}$) are random pruning results. Orange circles ($\textcolor{orange}{\bullet}$) represent  the performance of a previous graph sparsification approach, i.e., ADMM. Red stars  are established by our method (UGS).
+<img src = "./Figs/Teaser.png" align = "left" width="50%" hight="50%"> Summary of our achieved performance (y-axis) at different graph and GNN sparsity levels (x-axis) on Cora and Citeceer node classification. The size of markers represent the inference MACs (= 0.5 FLOPs) of each sparse GCN on the corresponding sparsified graphs. Black circles indicate the baseline, i.e., unpruned dense GNNs on the full graph. Blue circles are random pruning results. Orange circles represent  the performance of a previous graph sparsification approach, i.e., ADMM. Red stars  are established by our method (UGS).
 
 ## Methodlody
 
