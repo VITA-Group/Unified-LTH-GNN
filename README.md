@@ -26,6 +26,18 @@ Detials are refer to our [Paper]().
 
 Refer to [README](./NodeClassification/README.md)
 
+### Link Prediction on Cora, Citeseer, PubMed
+
+Refer to [README](./LinkPrediction/README.md)
+
+### Experiments on OGB Datasets
+
+Refer to Ogbn_ArXiv ([README](./OGBN_arxiv/unify/ogb/ogbn_arxiv/README.md))
+
+Refer to Ogbn_Proteins ([README](./OGBN_proteins/unify/ogb/ogbn_proteins/README.md))
+
+Refer to Ogbn_Collab ([README](./OGBL_Collab/unify/ogb/ogbl_collab/README.md))
+
 
 
 ## Citation
@@ -43,30 +55,5 @@ https://github.com/Shen-Lab/SS-GCNs
 https://github.com/cmavro/Graph-InfoClust-GIC
 
 https://github.com/lightaime/deep_gcns_torch
-
-## 2. Experiments
-
-### 2.1 Node classification on Cora, Citeseer, PubMed
-
-```
-cd NodeClassification
-```
-
-### 2.2 Link Prediction on Cora, Citeseer, PubMed
-
-```
-cd LinkPrediction
-```
-
-### 2.3 Experiments on OGB datasets
-
-```
-cd OGBN_arxiv/unify/ogb/ogbn_arxiv
-
-cd OGBN_proteins/unify/ogb/ogbn_proteins
-
-cd OGBL_Collab/unify/ogb/ogbl_collab
-
-```
 
 
