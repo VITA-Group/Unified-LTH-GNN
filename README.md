@@ -43,7 +43,14 @@ Refer to Ogbn_Collab ([README](./OGBL_Collab/unify/ogb/ogbl_collab/README.md))
 ## Citation
 
 ```
-TBD
+@misc{chen2021unified,
+      title={A Unified Lottery Ticket Hypothesis for Graph Neural Networks}, 
+      author={Tianlong Chen and Yongduo Sui and Xuxi Chen and Aston Zhang and Zhangyang Wang},
+      year={2021},
+      eprint={2102.06790},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
 ```
 
 
