@@ -33,6 +33,22 @@ python -u main_pruning_imp_pretrain.py --dataset citeseer --embedding-dim 3703 5
 
 ```
 
+### ADMM baseline
+
+```
+cd ADMM/ADMM
+
+Run pretrain.py to obtain pretrained model 
+
+Run train-auto-admm-tuneParameter.py to get the ADMM adjacency matrix
+
+Then
+
+python -u main_admm_eval.py --dataset cora --embedding-dim 1433 512 7 --lr 0.008 --weight-decay 8e-5 --index $adj_index
+
+to eval the ADMM baseline performance
+```
+
 
 ### GAT & GIN IMP and RP
 

@@ -128,11 +128,12 @@ class GENConv(GenMessagePassing):
 
         elif self.aggr in ['softmax_sg', 'softmax', 'softmax_sum']:
             
+            inputs = inputs * self.edge_mask1_train * self.edge_mask2_fixed
             if self.learn_t:
-                out = scatter_softmax(inputs * self.edge_mask1_train * self.edge_mask2_fixed* self.t, index, dim=self.node_dim)
+                out = scatter_softmax(inputs * self.t, index, dim=self.node_dim)
             else:
                 with torch.no_grad():
-                    out = scatter_softmax(inputs * self.edge_mask1_train * self.edge_mask2_fixed * self.t, index, dim=self.node_dim)
+                    out = scatter_softmax(inputs * self.t, index, dim=self.node_dim)
 
             out = scatter(inputs * out, index, 
                           dim=self.node_dim,
