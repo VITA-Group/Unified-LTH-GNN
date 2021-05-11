@@ -34,14 +34,6 @@ def run_fix_mask(args, seed, adj_percent, wei_percent):
     net_gcn = net_gcn.cuda()
     pruning.random_pruning(net_gcn, adj_percent, wei_percent)
 
-    # pruned_adj = net_gcn.adj_mask2_fixed.detach().cpu()
-    # pruned_adj = coo_matrix(pruned_adj)
-    # rp_dict = {}
-    # rp_dict['rp'] = pruned_adj
-    # save_dir = 'adjs/pubmed/pubmed_rp13.pt'
-    # torch.save(rp_dict, save_dir)
-    # pdb.set_trace()
-
     adj_spar, wei_spar = pruning.print_sparsity(net_gcn)
     
     for name, param in net_gcn.named_parameters():
@@ -79,7 +71,7 @@ def run_fix_mask(args, seed, adj_percent, wei_percent):
 
 
 def parser_loader():
-    parser = argparse.ArgumentParser(description='Self-Supervised GCN')
+    parser = argparse.ArgumentParser(description='GLT')
     ###### Unify pruning settings #######
     parser.add_argument('--s1', type=float, default=0.0001,help='scale sparse rate (default: 0.0001)')
     parser.add_argument('--s2', type=float, default=0.0001,help='scale sparse rate (default: 0.0001)')
@@ -106,7 +98,7 @@ if __name__ == "__main__":
     seed = seed_dict[args['dataset']]
 
     percent_list = [(1 - (1 - args['pruning_percent_adj']) ** (i + 1), 1 - (1 - args['pruning_percent_wei']) ** (i + 1)) for i in range(20)]
-    for p, (adj_percent, wei_percent) in enumerate(percent_list[12:]):
+    for p, (adj_percent, wei_percent) in enumerate(percent_list):
         
         best_acc_val, final_acc_test, final_epoch_list, adj_spar, wei_spar = run_fix_mask(args, seed, adj_percent, wei_percent)
         print("=" * 120)

@@ -76,7 +76,7 @@ def run(args):
                             best_val_acc['epoch']))
 
 def parser_loader():
-    parser = argparse.ArgumentParser(description='Self-Supervised GCN')
+    parser = argparse.ArgumentParser(description='GLT')
     parser.add_argument('--dataset', type=str, default='')
     parser.add_argument('--embedding-dim', nargs='+', type=int, default=[3703,16,6])
     parser.add_argument('--lr', type=float, default=0.001)
