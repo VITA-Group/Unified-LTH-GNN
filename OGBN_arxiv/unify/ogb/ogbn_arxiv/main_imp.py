@@ -131,7 +131,7 @@ def main_fixed_mask(args, imp_num, rewind_weight_mask, resume_train_ckpt=None):
                                 results['final_test'] * 100,
                                 results['epoch']))
     print("=" * 120)
-    print("syd final: IMP:[{}], Train:[{:.2f}]  Best Val:[{:.2f}] at epoch:[{}] | Final Test Acc:[{:.2f}] Adj:[{:.2f}%] Wei:[{:.2f}%]"
+    print("INFO final: IMP:[{}], Train:[{:.2f}]  Best Val:[{:.2f}] at epoch:[{}] | Final Test Acc:[{:.2f}] Adj:[{:.2f}%] Wei:[{:.2f}%]"
         .format(imp_num,    results['final_train'] * 100,
                             results['highest_valid'] * 100,
                             results['epoch'],
@@ -217,7 +217,7 @@ def main_get_mask(args, imp_num, rewind_weight_mask=None, resume_train_ckpt=None
                                 adj_spar, 
                                 wei_spar))
     print('-' * 100)
-    print("syd : IMP:[{}] (GET MASK) Final Result Train:[{:.2f}]  Valid:[{:.2f}]  Test:[{:.2f}] | Adj:[{:.2f}%] Wei:[{:.2f}%] "
+    print("INFO : IMP:[{}] (GET MASK) Final Result Train:[{:.2f}]  Valid:[{:.2f}]  Test:[{:.2f}] | Adj:[{:.2f}%] Wei:[{:.2f}%] "
         .format(imp_num, results['final_train'] * 100,
                          results['highest_valid'] * 100,
                          results['final_test'] * 100,

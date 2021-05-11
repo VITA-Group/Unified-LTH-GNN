@@ -100,7 +100,7 @@ def main_fixed_mask(args, imp_num, rewind_weight_mask, rewind_predict_weight, re
                                                                results['epoch'],
                                                                epoch_time))
     print("=" * 120)
-    print("syd final: IMP:[{}], Train:[{:.2f}]  Best Val:[{:.2f}] at epoch:[{}] | Final Test Acc:[{:.2f}] Adj:[{:.2f}%] Wei:[{:.2f}%]"
+    print("INFO final: IMP:[{}], Train:[{:.2f}]  Best Val:[{:.2f}] at epoch:[{}] | Final Test Acc:[{:.2f}] Adj:[{:.2f}%] Wei:[{:.2f}%]"
         .format(imp_num,    results['final_train'][k] * 100,
                             results['highest_valid'][k] * 100,
                             results['epoch'],
@@ -208,7 +208,7 @@ def main_get_mask(args, imp_num, rewind_weight_mask=None, rewind_predict_weight=
 
     rewind_weight_mask, adj_spar, wei_spar = pruning.change(rewind_weight_mask, model, args)
     print('-' * 100)
-    print("syd : IMP:[{}] (GET MASK) Final Result Train:[{:.2f}]  Valid:[{:.2f}]  Test:[{:.2f}] | Adj:[{:.3f}%] Wei:[{:.3f}%]"
+    print("INFO : IMP:[{}] (GET MASK) Final Result Train:[{:.2f}]  Valid:[{:.2f}]  Test:[{:.2f}] | Adj:[{:.3f}%] Wei:[{:.3f}%]"
         .format(imp_num, results['final_train'][k] * 100,
                          results['highest_valid'][k] * 100,
                          results['final_test'][k] * 100,
@@ -227,7 +227,7 @@ if __name__ == "__main__":
     args.pruning_percent_adj, args.pruning_percent_wei = percent_list[imp_num - 1]
     pruning.print_args(args, 80)
     pruning.setup_seed(666)
-    print("syd: IMP:[{}] Pruning adj[{:.6f}], wei[{:.6f}]".format(imp_num, args.pruning_percent_adj, args.pruning_percent_wei))
+    print("INFO: IMP:[{}] Pruning adj[{:.6f}], wei[{:.6f}]".format(imp_num, args.pruning_percent_adj, args.pruning_percent_wei))
 
     resume_train_ckpt = None
     if args.resume_dir:

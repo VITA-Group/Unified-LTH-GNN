@@ -102,7 +102,7 @@ def main_fixed_mask(args, imp_num, resume_train_ckpt=None):
                                                                results['wei_spar'],
                                                                epoch_time))
     print("=" * 120)
-    print("syd final: RP:[{}], Train:[{:.2f}]  Best Val:[{:.2f}] at epoch:[{}] | Final Test Acc:[{:.2f}] | Adj:[{:.2f}%] Wei:[{:.2f}%]"
+    print("INFO final: RP:[{}], Train:[{:.2f}]  Best Val:[{:.2f}] at epoch:[{}] | Final Test Acc:[{:.2f}] | Adj:[{:.2f}%] Wei:[{:.2f}%]"
         .format(imp_num,    results['final_train'] * 100,
                             results['highest_valid'] * 100,
                             results['epoch'],
@@ -121,7 +121,7 @@ if __name__ == "__main__":
     percent_list = [(1 - (1 - 0.05) ** (i + 1), 1 - (1 - 0.2) ** (i + 1)) for i in range(20)]
     args.pruning_percent_adj, args.pruning_percent_wei = percent_list[imp_num - 1]
     pruning.print_args(args, 80)
-    print("syd: RP:[{}] Pruning adj[{:.6f}], wei[{:.6f}]".format(imp_num, args.pruning_percent_adj, args.pruning_percent_wei))
+    print("INFO: RP:[{}] Pruning adj[{:.6f}], wei[{:.6f}]".format(imp_num, args.pruning_percent_adj, args.pruning_percent_wei))
 
     resume_train_ckpt = None
     
