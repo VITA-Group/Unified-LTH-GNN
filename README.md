@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-[Preprint] [A Unified Lottery Tickets Hypothesis for Graph Neural Networks](https://arxiv.org/abs/2102.06790)
+[ICML 2021] [A Unified Lottery Tickets Hypothesis for Graph Neural Networks](https://arxiv.org/abs/2102.06790)
 
 Tianlong Chen\*, Yongduo Sui\*, Xuxi Chen, Aston Zhang, Zhangyang Wang
 
