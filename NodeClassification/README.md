@@ -12,6 +12,8 @@ dgl-cu101==0.4.2
 
 ## 2. Training & Evaluation
 
+Notes: for retraining stage, we use the fixed 200 epochs and we extract the mask at the epoch with the best val accuracy. We can also use the early stop strategy (according to the val acc) to speed up the retraining stage and avoid the performance drop.
+
 ### GCN IMP, RP and Pretrain
 
 ```
