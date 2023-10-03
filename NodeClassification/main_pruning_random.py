@@ -16,8 +16,11 @@ import copy
 from scipy.sparse import coo_matrix
 import warnings
 import time
+from gnn_accel.utils.experiments_utils import check_and_create_csv
 
 warnings.filterwarnings("ignore")
+
+PREPROCESSING_TIME = 0
 
 
 # python main_pruning_random.py --dataset grph_6 --dataset_path /home/polp/puigde/gnn_accel/datasets/minisample/lt --embedding-dim 413 512 19 --lr 0.01 --weight-decay 5e-4 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --total_epoch 200
@@ -39,7 +42,9 @@ def run_fix_mask(args, seed, adj_percent, wei_percent):
     net_gcn = net.net_gcn(embedding_dim=args["embedding_dim"], adj=adj)
     pruning.add_mask(net_gcn)
     net_gcn = net_gcn.cuda()
+    preprocessing_start = time.perf_counter()
     pruning.random_pruning(net_gcn, adj_percent, wei_percent)
+    PREPROCESSING_TIME = time.perf_counter() - preprocessing_start
 
     adj_spar, wei_spar = pruning.print_sparsity(net_gcn)
 
@@ -120,52 +125,8 @@ def parser_loader():
     parser.add_argument("--lr", type=float, default=0.01)
     parser.add_argument("--weight-decay", type=float, default=5e-4)
     parser.add_argument("--csv_filename", type=str, help="csv filename and path")
+    parser.add_argument("--graph_id", type=str)
     return parser
-
-
-def check_and_create_csv(
-    dataset,
-    dim,
-    hidden,
-    classes,
-    num_layers,
-    model,
-    avg_epoch_time,
-    best_accuracy,
-    epoch_best_accuracy,
-    csv_filename,
-):
-    if not os.path.exists(csv_filename):
-        with open(csv_filename, "w", newline="") as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(
-                [
-                    "dataset",
-                    "dim",
-                    "hidden",
-                    "classes",
-                    "num_layers",
-                    "model",
-                    "Avg.Epoch (ms)",
-                    "best_accuracy",
-                    "epoch_best_accuracy",
-                ]
-            )
-    with open(csv_filename, "a", newline="") as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(
-            [
-                dataset,
-                dim,
-                hidden,
-                classes,
-                num_layers,
-                model,
-                avg_epoch_time,
-                float(best_accuracy),
-                epoch_best_accuracy,
-            ]
-        )
 
 
 if __name__ == "__main__":
@@ -222,4 +183,7 @@ if __name__ == "__main__":
         best_accuracy=final_acc_test,
         epoch_best_accuracy=final_epoch_list,
         csv_filename=args["csv_filename"],
+        graph_id=args["graph_id"],
+        epochs=args["total_epoch"],
+        preprocessing_time=PREPROCESSING_TIME * 1e3,
     )
