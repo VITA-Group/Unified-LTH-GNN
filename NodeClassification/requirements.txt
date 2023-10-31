@@ -30,7 +30,7 @@ entrypoints==0.3
 exceptiongroup==1.1.3
 fail2ban==0.11.1
 filelock==3.0.12
--e git+https://github.com/puigde/gnn_accel.git@a1dc73d9d91eab62ecd6c2e7225d420b7d6ea3d1#egg=gnn_accel
+-e git+https://github.com/puigde/gnn_accel.git@5b0b356948ae12bf2a7bc0f2dbd8c3acef25135c#egg=gnn_accel
 google-auth==2.23.2
 google-auth-oauthlib==1.0.0
 greenlet==2.0.2
