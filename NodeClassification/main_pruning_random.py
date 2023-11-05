@@ -16,14 +16,14 @@ import copy
 from scipy.sparse import coo_matrix
 import warnings
 import time
-from gnn_accel.utils.experiments_utils import check_and_create_csv
+from v2GNNAccel.utils.experiments_utils import check_and_create_csv
 
 warnings.filterwarnings("ignore")
 
 PREPROCESSING_TIME = 0
 
 
-# python main_pruning_random.py --dataset grph_6 --dataset_path /home/polp/puigde/gnn_accel/datasets/minisample/lt --embedding-dim 413 512 19 --lr 0.01 --weight-decay 5e-4 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --total_epoch 200
+# python main_pruning_random.py --dataset grph_6 --dataset_path /home/polp/puigde/v2GNNAccel/datasets/minisample/lt --embedding-dim 413 512 19 --lr 0.01 --weight-decay 5e-4 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --total_epoch 200
 # python main_pruning_random.py --dataset cora --dataset_path ../dataset --embedding-dim 1433 512 7 --lr 0.01 --weight-decay 5e-4 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --total_epoch 200
 def run_fix_mask(args, seed, adj_percent, wei_percent):
     pruning.setup_seed(seed)

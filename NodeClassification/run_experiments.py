@@ -1,7 +1,8 @@
 import os
 import argparse
-from gnn_accel.utils.getting_metrics import get_embedding_dimension, get_number_classes
-from gnn_accel.utils.reading_graphs import read_gml_graph_to_pyg
+from pathlib import Path
+from v2GNNAccel.utils.getting_metrics import get_embedding_dimension, get_number_classes
+from v2GNNAccel.utils.reading_graphs import read_gml_graph_to_pyg
 
 os.environ["PYTHONWARNINGS"] = "ignore"
 
@@ -55,7 +56,7 @@ if __name__ == "__main__":
         nargs="+",
         type=str,
         default=[
-            "/home/polp/puigde/gnn_accel/Unified-LTH-GNN/NodeClassification/main_pruning_random.py"
+            "/home/polp/puigde/v2GNNAccel/Unified-LTH-GNN/NodeClassification/main_pruning_random.py"
         ],
         help="List of LT modes",
     )
@@ -63,7 +64,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--dataset_path",
         type=str,
-        default="/home/polp/puigde/gnn_accel/datasets/minisample/lt",
+        default="/home/polp/puigde/v2GNNAccel/datasets/minisample/lt",
         help="Path to the dataset",
     )
     parser.add_argument(
@@ -103,13 +104,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--gml_dataset_path",
         type=str,
-        default="/home/polp/puigde/gnn_accel/datasets/minisample/",
+        default="/home/polp/puigde/v2GNNAccel/datasets/minisample/",
         help="Path to GML datasets",
     )
     parser.add_argument(
         "--csv_path",
         type=str,
-        default="/home/polp/puigde/gnn_accel/experiments/lt/",
+        default="/home/polp/puigde/v2GNNAccel/experiments/lt/",
         help="Path for saving CSV files",
     )
 
